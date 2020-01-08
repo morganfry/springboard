@@ -1,2 +1,2 @@
 # springboard
-for springboard projects
+container for all springboard projects
