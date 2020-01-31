@@ -27,7 +27,7 @@ exploring the data, and getting acquainted with the 3 tables. */
 /* Q1: Some of the facilities charge a fee to members, but some do not.
 Please list the names of the facilities that do. */
 
-SELECT name FROM `Facilities` WHERE membercost > 1
+SELECT name FROM `Facilities` WHERE membercost > 0
 
 Tennis Court 1
 Tennis Court 2
@@ -37,13 +37,22 @@ Squash Court
 
 
 /* Q2: How many facilities do not charge a fee to members? */
+SELECT COUNT(name) FROM `Facilities` WHERE membercost = 0
 
+4
 
 /* Q3: How can you produce a list of facilities that charge a fee to members,
 where the fee is less than 20% of the facility's monthly maintenance cost?
 Return the facid, facility name, member cost, and monthly maintenance of the
 facilities in question. */
 
+SELECT facid,name,membercost,monthlymaintenance FROM `Facilities` WHERE guestcost < (monthlymaintenance * 0.2)
+
+facid	name	membercost	monthlymaintenance	
+0	Tennis Court 1	5.0	200
+1	Tennis Court 2	5.0	200
+4	Massage Room 1	9.9	3000
+5	Massage Room 2	9.9	3000
 
 /* Q4: How can you retrieve the details of facilities with ID 1 and 5?
 Write the query without using the OR operator. */
