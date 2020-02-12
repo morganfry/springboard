@@ -48,20 +48,32 @@ facilities in question. */
 
 SELECT facid,name,membercost,monthlymaintenance FROM `Facilities` WHERE guestcost < (monthlymaintenance * 0.2)
 
-facid	name	membercost	monthlymaintenance	
-0	Tennis Court 1	5.0	200
-1	Tennis Court 2	5.0	200
-4	Massage Room 1	9.9	3000
-5	Massage Room 2	9.9	3000
+facid	name        	membercost	monthlymaintenance	
+    0	Tennis Court 1	5.0     	200
+    1	Tennis Court 2	5.0     	200
+    4	Massage Room 1	9.9     	3000
+    5	Massage Room 2	9.9     	3000
 
 /* Q4: How can you retrieve the details of facilities with ID 1 and 5?
 Write the query without using the OR operator. */
+
+SELECT *
+FROM `Facilities`
+WHERE facid
+IN ( 1, 5 )
+LIMIT 0 , 30
+
+
+facid 	name        	membercost 	guestcost 	initialoutlay 	monthlymaintenance
+    1 	Tennis Court 2 	5.0     	25.0     	8000        	200
+    5 	Massage Room 2 	9.9     	80.0     	4000        	3000
 
 
 /* Q5: How can you produce a list of facilities, with each labelled as
 'cheap' or 'expensive', depending on if their monthly maintenance cost is
 more than $100? Return the name and monthly maintenance of the facilities
 in question. */
+
 
 
 /* Q6: You'd like to get the first and last name of the last member(s)
