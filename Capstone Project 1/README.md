@@ -1,2 +1,4 @@
-README for Springboard CApstone Project 1
+Springboard Capstone Project 1
 Histoplathologic Cancer Detection
+May 2020
+Morgan Fry
