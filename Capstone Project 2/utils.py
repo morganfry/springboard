@@ -8,9 +8,10 @@ import pickle
 from sklearn.utils import shuffle
 from sklearn.preprocessing import MultiLabelBinarizer, LabelEncoder, StandardScaler
 
-#@tf.function
+@tf.function
 def parse_audio_mfcc(filename, label=0, start=0, end=1323000, rate=8000, nfft=512, window=512, stride=256, mels=54, fmin=50, fmax=8000, top_db=80, low_mel=8, high_mel=27):
-    """returns audio trimmed to [START:END] sample indexes and scaled to -1 to 1
+    """returns MFCC features trimmed to [START:END] sample indexes and scaled to -1 to 1
+       for use with Tensorflow Dataset preprocessing
     """    
     audio = tfio.audio.AudioIOTensor(filename, dtype=tf.float32)
    
@@ -27,6 +28,7 @@ def parse_audio_mfcc(filename, label=0, start=0, end=1323000, rate=8000, nfft=51
 @tf.function
 def parse_audio(filename, label=0, start=0, end=1323000):
     """returns audio trimmed to [START:END] sample indexes and scaled to -1 to 1
+       for use with TensorFlow Dataset preprocessing
     """    
     audio = tfio.audio.AudioIOTensor(filename, dtype=tf.float32)
    
